@@ -6,19 +6,35 @@
     <title>Document</title>
 </head>
 <body>
-    
-</body>
 
-    <h3>Nama : Dwi Putri</h3>
+    <h3>Nama : Dwi Putri Mahriani</h3>
     <h3>NIM : 20250140232</h3>
 
     <p>
-        Kota : 
-        <span id="Lokasi"<>/spam>
+        Kota :
+        <span id="lokasi"></span>
     </p>
 
     <hr>
 
+    <p> 
+        Koordinat :
+        <span id="negara"></span>
+    </p>
 
-</html
+    <script> 
+       
+       fetch("/api/lokasi")
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            document.getElementById("lokasi").innerHTML = data.kota;
+            document.getElementById("negara").innerHTML = data.koordinat;
+        })
+        .catch(error => {
+            console.error(error);
+        });
 
+    </script>
+</body>
+</html>
